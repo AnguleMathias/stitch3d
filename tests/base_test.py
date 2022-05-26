@@ -4,8 +4,7 @@ import script
 
 class BaseConfig(object):
     """Common configurations"""
-    TESTING = True
-    DEBUG = True
+    TESTING = False
 
 
 class BaseTest(unittest.TestCase):
@@ -13,11 +12,12 @@ class BaseTest(unittest.TestCase):
 
     def create_app(self):
         BaseConfig.TESTING = True
-        return script.app
+        return script()
 
     def setUp(self):
-        self.app = script.app.test_client()
-        self.app.testing = True
+        self.app = self.create_app()
+        self.client = self.app.test_client()
+        self.user_data = {}
 
     def tearDown(self):
         pass

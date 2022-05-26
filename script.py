@@ -10,7 +10,7 @@ class Script:
     def command_prompt(self):
         while True:
             command, *args = input('Enter command: ').split(' ')
-            if command not in {'GET', 'SET', 'UNSET', 'NUMEQUALTO', 'END'}:
+            if command not in {'GET', 'SET', 'UNSET', 'NUMEQUALTO', 'END', 'BEGIN', 'COMMIT', 'ROLLBACK'}:
                 print('error')
                 continue
             else:
@@ -25,6 +25,12 @@ class Script:
             self._unset(*args)
         elif command == 'NUMEQUALTO':
             self._numequalto(*args)
+        elif command == 'BEGIN':
+            self._begin_transaction()
+        elif command == 'COMMIT':
+            self._commit_transaction()
+        elif command == 'ROLLBACK':
+            self._rollback_transaction()
         elif command == 'END':
             self._end()
 
@@ -49,6 +55,15 @@ class Script:
             if self.user_data[key] == value:
                 result += 1
         print(result)
+
+    def _begin_transaction(self):
+        print('BEGIN')
+
+    def _commit_transaction(self):
+        print('COMMIT')
+
+    def _rollback_transaction(self):
+        print('ROLLBACK')
 
     def _end(self):
         exit()
