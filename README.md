@@ -10,15 +10,15 @@ A program that runs accepting shell commands
 
 #### What is the Big O complexity of each operation?
 
-- GET <key> :
+- GET <key> : Constant time 0(1)
 
-- SET <key> <value> :
+- SET <key> <value> : Constant time 0(1)
 
-- UNSET <key> :
+- UNSET <key> : Constant time 0(1)
 
-- NUMEQUALTO <value> :
+- NUMEQUALTO <value> : Linear time 0(n)
 
-- END :
+- END : Constant time 0(1)
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ A program that runs accepting shell commands
 
 - Run the app(for Windows, Linux and MacOS)
 
-  `python3 run.py`
+  `python3 script.py`
 
 ## Running the tests
 
