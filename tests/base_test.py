@@ -1,23 +1,25 @@
-import unittest
-import script
+from unittest import TestCase
+from script import Script
 
 
-class BaseConfig(object):
-    """Common configurations"""
-    TESTING = False
-
-
-class BaseTest(unittest.TestCase):
-    """Base test class"""
-
-    def create_app(self):
-        BaseConfig.TESTING = True
-        return script()
+class TestScript(TestCase):
+    """Test script.py"""
 
     def setUp(self):
-        self.app = self.create_app()
-        self.client = self.app.test_client()
         self.user_data = {}
 
-    def tearDown(self):
-        pass
+    def test_get(self):
+        """Test _get()"""
+        self.assertEqual(Script()._get('key'), None)
+
+    def test_set(self):
+        """Test _set()"""
+        self.assertEqual(Script()._set('key', 'value'), None)
+
+    def test_unset(self):
+        """Test _unset()"""
+        self.assertEqual(Script()._unset('key'), None)
+
+    def test_numequalto(self):
+        """Test _numequalto()"""
+        self.assertEqual(Script()._numequalto('value'), None)

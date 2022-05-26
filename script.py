@@ -5,6 +5,7 @@ class Script:
             'age': '30',
             'gender': 'male',
             'bio': 'male',
+            'key': 'value',
         }
 
     def command_prompt(self):
